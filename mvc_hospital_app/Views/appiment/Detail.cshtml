@@ -1,0 +1,117 @@
+﻿@*@model IEnumerable<mvc_hospital_app.Models.idgets>*@
+@model IEnumerable<mvc_hospital_app.appbook_tab>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+@*<div>
+        @using (Html.BeginForm("Detail", "appiment", FormMethod.Get))
+        {
+            <div>
+                <label>APPOIMENT TIME:</label>
+
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.SelectedId)
+            </div>
+
+            <div>
+                <label>APPOIMENT DATE:</label>
+
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.appdates)
+            </div>
+
+
+            <div>
+                <label>DOCTOR ID</label>
+
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.doctor)
+            </div>
+
+            <div>
+                <label>PATIENT ID</label>
+
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.pid)
+
+            </div>
+
+
+
+
+
+
+        }
+
+
+    </div>*@
+
+<div>
+    @using (Html.BeginForm("Detail", "appiment", FormMethod.Get))
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(m => m.app_date)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(m => m.app_time)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(m => m.doctor_id)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(m => m.patient_id)
+                </th>
+
+
+
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.app_date)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.app_time)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.doctor_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.patient_id)
+                    </td>
+
+
+                </tr>
+            }
+        </table>
+
+
+    }
+
+
+</div>

@@ -1,0 +1,106 @@
+﻿@model mvc_hospital_app.Models.PatientReg
+@{
+    ViewBag.Title = "insert_pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: blue;
+        border: none;
+        color: white;
+        padding: 10px 42px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+<body style="background-color:darkturquoise;">
+
+
+    <h2>Patient Registration</h2>
+    @Html.ActionLink("TO LOGIN", "login_Pageload", "DbLogin")
+    <div>
+        @using (Html.BeginForm("insert_click", "patientReg", FormMethod.Post))
+        {
+            <div>
+                <label>Name :</label>
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.p_name)
+                @Html.ValidationMessageFor(m => m.p_name)
+            </div>
+
+            <div>
+                <label>Age :</label>
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.Age)
+                @Html.ValidationMessageFor(m => m.Age)
+            </div>
+
+            <div>
+                <label>Sex :</label>
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.sex)
+
+            </div>
+
+            <div>
+                <label>Address :</label>
+            </div>
+            <div>
+                @Html.TextAreaFor(m => m.address)
+                @Html.ValidationMessageFor(m => m.address)
+            </div>
+            <div>
+                <label>Mobile Number :</label>
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.mob)
+                @Html.ValidationMessageFor(m => m.mob)
+            </div>
+
+            <div>
+                <label>Email :</label>
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.email)
+
+            </div>
+
+            <div>
+                <label>Username :</label>
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.username)
+                @Html.ValidationMessageFor(m => m.username)
+            </div>
+
+            <div>
+                <label>Password :</label>
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.password)
+                @Html.ValidationMessageFor(m => m.password)
+            </div>
+
+            <div>
+                <label>Conform Password :</label>
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.conformpassword)
+                @Html.ValidationMessageFor(m => m.conformpassword)
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="insert" />
+                @Html.DisplayFor(m => m.msg)
+            </div>
+
+        }
+
+    </div>
+
+</body>

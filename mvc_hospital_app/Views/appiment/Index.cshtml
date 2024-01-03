@@ -1,0 +1,77 @@
+﻿@model mvc_hospital_app.Models.appoiment
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: blue;
+        border: none;
+        color: white;
+        padding: 10px 42px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+<body style="background-color:darkturquoise;">
+
+
+
+    <h2>Index</h2>
+
+    @*<html xmlns="http://www.w3.org/1999/xhtml">
+        <head runat="server">
+            <title>Index</title>
+        </head>
+        <body>*@
+    @*@Html.LabelFor(model => model.apptimes)
+        @Html.DropDownListFor(model => model.apptimes, Model.apptimes)*@
+<div>
+    @using (Html.BeginForm("appoim_click", "appiment", FormMethod.Post))
+    {
+        <div>
+            <label>Appoiment Time:</label>
+        </div>
+        <div>
+            @Html.DropDownListFor(x => x.SelectedId, Model.Items, "-- Select an Item --")
+        </div>
+
+        <div>
+            <label>Appoiment Date:</label>
+        </div>
+        <div>
+            @Html.DropDownListFor(x => x.appdates, Model.Item, "-- Select an date --")
+        </div>
+
+
+        <div>
+            <label>Doctor Name:</label>
+        </div>
+        <div>
+            @Html.DropDownListFor(x => x.doctor, Model.doc, "-- select Doctor--")
+        </div>
+
+        <div>
+            <label>Patient ID :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(x => x.patientid)
+           
+        </div>
+
+         <br />
+            <div>
+                <input type="submit" value="insert" />
+                @Html.DisplayFor(x => x.msg)
+            </div>
+
+
+
+
+    }
+</div>
+</body>
+

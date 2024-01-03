@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HOSPITALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="appbook_tab">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="app_date" Type="date" Nullable="false" />
+          <Property Name="app_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="doctor_id" Type="int" Nullable="false" />
+          <Property Name="patient_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="book_tab">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="int" Nullable="false" />
+          <Property Name="app_date" Type="date" Nullable="false" />
+          <Property Name="app_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="doctor_id" Type="int" Nullable="false" />
+          <Property Name="patient_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="patient_tab">
+          <Key>
+            <PropertyRef Name="patient_id" />
+          </Key>
+          <Property Name="patient_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="sex" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mob" Type="bigint" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="p_register" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pna" Type="varchar" Mode="In" />
+          <Parameter Name="ag" Type="int" Mode="In" />
+          <Parameter Name="sex" Type="varchar" Mode="In" />
+          <Parameter Name="add" Type="varchar" Mode="In" />
+          <Parameter Name="mob" Type="bigint" Mode="In" />
+          <Parameter Name="emai" Type="nvarchar" Mode="In" />
+          <Parameter Name="una" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_appoiment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="appd" Type="date" Mode="In" />
+          <Parameter Name="appt" Type="time" Mode="In" />
+          <Parameter Name="docid" Type="int" Mode="In" />
+          <Parameter Name="patid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_bookingdet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_idget" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_idgeting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uname" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="una" Type="nvarchar" Mode="In" />
+          <Parameter Name="pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="status" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="HOSPITALModelStoreContainer">
+          <EntitySet Name="appbook_tab" EntityType="Self.appbook_tab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="book_tab" EntityType="Self.book_tab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="patient_tab" EntityType="Self.patient_tab" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HOSPITALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="patient_tab">
+          <Key>
+            <PropertyRef Name="patient_id" />
+          </Key>
+          <Property Name="patient_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mob" Type="Int64" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HOSPITALEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="patient_tab" EntityType="Self.patient_tab" />
+          <FunctionImport Name="p_register">
+            <Parameter Name="pna" Mode="In" Type="String" />
+            <Parameter Name="ag" Mode="In" Type="Int32" />
+            <Parameter Name="sex" Mode="In" Type="String" />
+            <Parameter Name="add" Mode="In" Type="String" />
+            <Parameter Name="mob" Mode="In" Type="Int64" />
+            <Parameter Name="emai" Mode="In" Type="String" />
+            <Parameter Name="una" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_login">
+            <Parameter Name="una" Mode="In" Type="String" />
+            <Parameter Name="pas" Mode="In" Type="String" />
+            <Parameter Name="status" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="book_tab" EntityType="HOSPITALModel.book_tab" />
+          <EntitySet Name="appbook_tab" EntityType="HOSPITALModel.appbook_tab" />
+          <FunctionImport Name="sp_appoiment">
+            <Parameter Name="appd" Mode="In" Type="DateTime" />
+            <Parameter Name="appt" Mode="In" Type="Time" />
+            <Parameter Name="docid" Mode="In" Type="Int32" />
+            <Parameter Name="patid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_bookingdet" ReturnType="Collection(HOSPITALModel.sp_bookingdet_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_idget" ReturnType="Collection(Int32)">
+          <Parameter Name="uname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_idgeting" ReturnType="Collection(HOSPITALModel.sp_idgeting_Result)">
+            <Parameter Name="uname" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="book_tab">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="Int32" Nullable="false" />
+          <Property Name="app_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="app_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="doctor_id" Type="Int32" Nullable="false" />
+          <Property Name="patient_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="appbook_tab">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="app_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="app_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="doctor_id" Type="Int32" Nullable="false" />
+          <Property Name="patient_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="sp_bookingdet_Result">
+          <Property Type="Int32" Name="booking_id" Nullable="false" />
+          <Property Type="DateTime" Name="app_date" Nullable="false" />
+          <Property Type="Time" Name="app_time" Nullable="false" />
+          <Property Type="Int32" Name="doctor_id" Nullable="false" />
+          <Property Type="Int32" Name="patient_id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_idgeting_Result">
+          <Property Type="Int32" Name="patient_id" Nullable="false" />
+          <Property Type="String" Name="p_name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="String" Name="sex" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="false" MaxLength="50" />
+          <Property Type="Int64" Name="mob" Nullable="false" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HOSPITALModelStoreContainer" CdmEntityContainer="HOSPITALEntities">
+          <EntitySetMapping Name="patient_tab">
+            <EntityTypeMapping TypeName="HOSPITALModel.patient_tab">
+              <MappingFragment StoreEntitySet="patient_tab">
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="mob" ColumnName="mob" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="p_register" FunctionName="HOSPITALModel.Store.p_register" />
+          <FunctionImportMapping FunctionImportName="sp_login" FunctionName="HOSPITALModel.Store.sp_login" />
+          <EntitySetMapping Name="book_tab">
+            <EntityTypeMapping TypeName="HOSPITALModel.book_tab">
+              <MappingFragment StoreEntitySet="book_tab">
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+                <ScalarProperty Name="app_time" ColumnName="app_time" />
+                <ScalarProperty Name="app_date" ColumnName="app_date" />
+                <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="appbook_tab">
+            <EntityTypeMapping TypeName="HOSPITALModel.appbook_tab">
+              <MappingFragment StoreEntitySet="appbook_tab">
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+                <ScalarProperty Name="app_time" ColumnName="app_time" />
+                <ScalarProperty Name="app_date" ColumnName="app_date" />
+                <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_appoiment" FunctionName="HOSPITALModel.Store.sp_appoiment" />
+          <FunctionImportMapping FunctionImportName="sp_bookingdet" FunctionName="HOSPITALModel.Store.sp_bookingdet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HOSPITALModel.sp_bookingdet_Result">
+                <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+                <ScalarProperty Name="app_date" ColumnName="app_date" />
+                <ScalarProperty Name="app_time" ColumnName="app_time" />
+                <ScalarProperty Name="doctor_id" ColumnName="doctor_id" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_idget" FunctionName="HOSPITALModel.Store.sp_idget" />
+          <FunctionImportMapping FunctionImportName="sp_idgeting" FunctionName="HOSPITALModel.Store.sp_idgeting">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HOSPITALModel.sp_idgeting_Result">
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="mob" ColumnName="mob" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

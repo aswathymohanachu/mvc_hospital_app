@@ -1,0 +1,56 @@
+﻿@model mvc_hospital_app.Models.PatientLogin
+@{
+    ViewBag.Title = "login_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color:blue;
+        border: none;
+        color: white;
+        padding: 10px 42px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+<body style="background-color:darkturquoise;">
+
+    <h1>MEDCARE</h1>
+    <h5>Health Solutions</h5>
+    <br />
+
+    <h2 style="color: blue;" >Registration Form</h2>
+    <h4 >     @Html.ActionLink("For NEW  Registration", "insert_pageload", "patientReg")</h4>
+
+    <div>
+        @using (Html.BeginForm("login_Click", "DbLogin", FormMethod.Post))
+        {
+
+            <div>
+                <label> User NAme:</label>
+
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.username)
+                @Html.ValidationMessageFor(m => m.username)
+            </div>
+
+            <div>
+                <label> Password :</label>
+
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.password)
+                @Html.ValidationMessageFor(m => m.password)
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="Login" />
+                @Html.DisplayFor(m => m.msg)
+            </div>
+
+
+        }
+    </div>
+</body>

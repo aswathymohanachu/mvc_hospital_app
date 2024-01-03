@@ -1,0 +1,38 @@
+﻿@model mvc_hospital_app.Models.appoiment
+@{
+    ViewBag.Title = "appoiment_pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<style>
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: blue;
+        border: none;
+        color: white;
+        padding: 10px 42px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+<body style="background-color:darkturquoise;">
+
+
+    <h1>MEDCARE</h1>
+    <h5>Health Solutions</h5>
+    <br />
+
+    <div>
+        @Html.ActionLink("NEW APPOIMENT", "Index", "appiment")
+
+    </div>
+    <div>
+        @Html.ActionLink("APPOIMENT DETAILS", "Detail", "appiment")
+
+    </div>
+
+
+
+</body>
